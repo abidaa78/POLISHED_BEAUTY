@@ -1,0 +1,596 @@
+/* ============================================================
+   Polished Beauty — style.css
+   Web Programming
+   ============================================================ */
+
+/* ---------- RESET & BASE ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #fff;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.07); }
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(-5deg); }
+  50%       { transform: rotate(5deg); }
+}
+@keyframes shimmer {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.anim-float   { animation: float   3s ease-in-out infinite; }
+.anim-pulse   { animation: pulse   2.5s ease-in-out infinite; }
+.anim-sway    { animation: sway    3s ease-in-out infinite; transform-origin: bottom center; }
+.anim-shimmer { animation: shimmer 2s ease-in-out infinite; }
+.float        { animation: float   3s ease-in-out infinite; }
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 48px;
+  background: #fff8fb;
+  border-bottom: 1px solid #f0d6e4;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-icon { width: 40px; height: 40px; flex-shrink: 0; }
+.logo-text  { display: flex; flex-direction: column; line-height: 1.15; }
+.logo-name  { font-size: 17px; font-weight: 600; color: #993556; letter-spacing: 0.3px; }
+.logo-tagline { font-size: 10px; color: #D4537E; letter-spacing: 2px; text-transform: uppercase; }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+.nav-links a {
+  font-size: 14px;
+  color: #5F5E5A;
+  font-family: Arial, sans-serif;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #993556; }
+
+.btn-book {
+  background: #D4537E;
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 9px 22px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-book:hover { background: #993556; }
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #993556;
+  cursor: pointer;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 64px 48px 56px;
+  background: #fff8fb;
+  animation: fadeInUp 0.7s ease both;
+}
+
+.hero-left { flex: 1; max-width: 520px; }
+
+.hero-badge {
+  display: inline-block;
+  background: #FBEAF0;
+  color: #993556;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.hero-left h1 {
+  font-size: 40px;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.highlight { color: #D4537E; }
+
+.hero-left p {
+  font-size: 15px;
+  color: #5F5E5A;
+  font-family: Arial, sans-serif;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.btn-primary {
+  background: #D4537E;
+  color: #fff;
+  border-radius: 24px;
+  padding: 12px 28px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #993556; }
+
+.btn-outline {
+  background: transparent;
+  color: #D4537E;
+  border: 1.5px solid #D4537E;
+  border-radius: 24px;
+  padding: 12px 28px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-outline:hover { background: #FBEAF0; }
+
+.hero-right {
+  flex: 0 0 260px;
+  background: #FBEAF0;
+  border-radius: 24px;
+  border: 1px solid #f0d6e4;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-height: 290px;
+}
+.hero-illustration { width: 160px; height: 160px; }
+
+.hero-rating { text-align: center; }
+.hero-rating .stars { color: #D4537E; font-size: 18px; margin-bottom: 4px; }
+.hero-rating p { font-size: 13px; color: #993556; font-family: Arial, sans-serif; }
+
+/* ---------- STATS BAR ---------- */
+.stats-bar {
+  display: flex;
+  border-top: 1px solid #f0d6e4;
+  border-bottom: 1px solid #f0d6e4;
+  background: #fff;
+}
+.stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 12px;
+  border-right: 1px solid #f0d6e4;
+}
+.stat:last-child { border-right: none; }
+.stat-num { font-size: 22px; font-weight: 600; color: #D4537E; }
+.stat-label { font-size: 12px; color: #888780; font-family: Arial, sans-serif; margin-top: 3px; }
+
+/* ---------- SECTIONS ---------- */
+.section { padding: 52px 48px; }
+
+.section-title {
+  font-size: 26px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 5px;
+}
+.section-sub {
+  font-size: 14px;
+  color: #888780;
+  font-family: Arial, sans-serif;
+  margin-bottom: 28px;
+}
+
+/* ---------- SERVICES GRID ---------- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.service-card {
+  background: #fff8fb;
+  border: 1px solid #f0d6e4;
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(212, 83, 126, 0.12);
+}
+
+.svc-icon { width: 60px; height: 60px; margin: 0 auto 14px; }
+
+.service-card h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+.service-card p {
+  font-size: 13px;
+  color: #888780;
+  font-family: Arial, sans-serif;
+  line-height: 1.55;
+}
+.svc-price {
+  display: block;
+  font-size: 14px;
+  color: #D4537E;
+  font-weight: 600;
+  font-family: Arial, sans-serif;
+  margin-top: 10px;
+}
+
+/* ---------- BRIDAL BANNER ---------- */
+.bridal-banner {
+  margin: 0 48px 40px;
+  background: #FBEAF0;
+  border: 1px solid #F4C0D1;
+  border-radius: 18px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.bridal-text h3 {
+  font-size: 17px;
+  font-weight: 500;
+  color: #993556;
+  margin-bottom: 6px;
+}
+.bridal-text p {
+  font-size: 14px;
+  color: #72243E;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+.btn-bridal {
+  background: #D4537E;
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 11px 24px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.btn-bridal:hover { background: #993556; }
+
+/* ---------- SHOP GRID ---------- */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  position: relative;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #f0d6e4;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.25s;
+}
+.product-card:hover { transform: translateY(-3px); }
+
+.product-img {
+  height: 140px;
+  background: #fff8fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-info { padding: 12px 14px; }
+.product-info h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 3px;
+}
+.product-info p {
+  font-size: 11px;
+  color: #888780;
+  font-family: Arial, sans-serif;
+}
+.product-price {
+  display: block;
+  font-size: 14px;
+  color: #D4537E;
+  font-weight: 600;
+  font-family: Arial, sans-serif;
+  margin-top: 6px;
+}
+
+.btn-cart {
+  width: 100%;
+  background: #FBEAF0;
+  color: #993556;
+  border: none;
+  border-radius: 8px;
+  padding: 7px;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+.btn-cart:hover { background: #F4C0D1; }
+
+/* Cart Toast */
+.cart-toast {
+  display: none;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: #993556;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  z-index: 999;
+  animation: toastIn 0.3s ease;
+}
+
+/* ---------- HOURS BAR ---------- */
+.hours-bar {
+  margin: 0 48px;
+  background: #fff8fb;
+  border: 1px solid #f0d6e4;
+  border-radius: 14px;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  font-family: Arial, sans-serif;
+}
+.hours-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #5F5E5A;
+}
+.hours-right { margin-left: auto; }
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-green { background: #1D9E75; }
+.dot-red   { background: #D85A30; }
+
+/* ---------- BOOKING SECTION ---------- */
+.booking-section {
+  background: #fff8fb;
+  border-top: 1px solid #f0d6e4;
+  padding: 52px 48px;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-top: 24px;
+}
+
+.booking-form {
+  background: #fff;
+  border: 1px solid #f0d6e4;
+  border-radius: 18px;
+  padding: 28px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form-group label {
+  font-size: 12px;
+  color: #5F5E5A;
+  font-family: Arial, sans-serif;
+}
+.form-group input,
+.form-group select {
+  border: 1px solid #f0d6e4;
+  border-radius: 9px;
+  padding: 9px 12px;
+  font-size: 13px;
+  color: #1a1a1a;
+  background: #fff8fb;
+  outline: none;
+  font-family: Arial, sans-serif;
+  transition: border-color 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #D4537E;
+}
+
+.btn-book-confirm {
+  width: 100%;
+  background: #D4537E;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 13px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+.btn-book-confirm:hover { background: #993556; }
+
+.form-msg {
+  margin-top: 10px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+.form-msg.success { color: #1D9E75; }
+.form-msg.error   { color: #D85A30; }
+
+/* ---------- TESTIMONIALS ---------- */
+.testimonials { display: flex; flex-direction: column; gap: 14px; }
+
+.testimonial {
+  background: #fff;
+  border: 1px solid #f0d6e4;
+  border-radius: 14px;
+  padding: 16px 18px;
+  transition: transform 0.2s;
+}
+.testimonial:hover { transform: translateY(-2px); }
+
+.testi-stars { color: #D4537E; font-size: 13px; margin-bottom: 6px; }
+.testi-text {
+  font-size: 13px;
+  color: #444441;
+  font-family: Arial, sans-serif;
+  line-height: 1.65;
+  margin-bottom: 8px;
+}
+.testi-author { font-size: 12px; color: #888780; font-family: Arial, sans-serif; }
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background: #4B1528;
+  color: #F4C0D1;
+  text-align: center;
+  padding: 28px 48px;
+}
+.footer-logo {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ED93B1;
+  margin-bottom: 10px;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: #F4C0D1;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: #ED93B1; }
+.footer-contact {
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  color: #F4C0D1;
+  margin-bottom: 8px;
+}
+.footer-copy {
+  font-size: 11px;
+  color: #ED93B1;
+  font-family: Arial, sans-serif;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .navbar { padding: 14px 20px; }
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: #fff8fb; border-bottom: 1px solid #f0d6e4; padding: 16px 24px; gap: 14px; z-index: 99; animation: slideDown 0.25s ease; }
+  .nav-links.open { display: flex; }
+  .hamburger { display: block; }
+  .btn-book { display: none; }
+
+  .hero { flex-direction: column; padding: 36px 20px; text-align: center; }
+  .hero-left h1 { font-size: 28px; }
+  .hero-btns { justify-content: center; }
+  .hero-right { width: 100%; max-width: 280px; margin: 0 auto; }
+
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .shop-grid     { grid-template-columns: 1fr 1fr; }
+  .booking-grid  { grid-template-columns: 1fr; }
+
+  .section        { padding: 32px 20px; }
+  .bridal-banner  { margin: 0 20px 28px; flex-direction: column; text-align: center; }
+  .hours-bar      { margin: 0 20px; }
+  .booking-section { padding: 32px 20px; }
+
+  .stats-bar { flex-wrap: wrap; }
+  .stat { min-width: 50%; border-right: none; border-bottom: 1px solid #f0d6e4; }
+}
+
+@media (max-width: 500px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .shop-grid     { grid-template-columns: 1fr; }
+  .form-row      { grid-template-columns: 1fr; }
+  .hero-left h1  { font-size: 24px; }
+}
