@@ -32,6 +32,9 @@ polished_beauty/
    ├── booking.png
    └── footer.png
 
+
+   
+
 ### 🏠 Homepage
 ![Homepage](images/homepage.png)
 
