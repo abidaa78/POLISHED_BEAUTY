@@ -17,4 +17,32 @@ It allows users to explore services and book appointments.
 3. Open http://localhost/POLISHED_BEAUTY/
 
 ## ⚠️ Note
-bookings.txt is ignored using .gitignore for privacy.   
+bookings.txt is ignored using .gitignore for privacy.  
+
+## 📁 Project Structure
+polished_beauty/
+│── index.html
+│── style.css
+│── script.js
+│── submit_booking.php
+│── images/
+   ├── homepage.png
+   ├── services.png
+   ├── products.png
+   ├── booking.png
+   └── footer.png
+
+### 🏠 Homepage
+![Homepage](images/homepage.png)
+
+### 💅 Services
+![Services](images/services.png)
+
+ ### 🛍️ Products
+![Products](images/products.png)
+
+### 📅 Booking
+![Booking](images/booking.png)
+
+### 🔻 Footer
+![Footer](images/footer.png)
