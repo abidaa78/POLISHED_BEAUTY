@@ -20,16 +20,27 @@ It allows users to explore services and book appointments.
 bookings.txt is ignored using .gitignore for privacy.  
 
 ## 📁 Project Structure
+
 polished_beauty/
+
 │── index.html
+
 │── style.css
+
 │── script.js
+
 │── submit_booking.php
+
 │── images/
+
    ├── homepage.png
+   
    ├── services.png
+   
    ├── products.png
+   
    ├── booking.png
+   
    └── footer.png
 
 
